@@ -1,0 +1,1637 @@
+<!-- Dependencies --><html xmlns="http://www.w3.org/1999/xhtml"><head><script type="text/javascript" src="../yui/2.7.0/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="../yui/2.7.0/animation/animation-debug.js"></script>
+
+<!-- Drag and Drop source file -->
+<script type="text/javascript" src="../yui/2.7.0/dragdrop/dragdrop-debug.js"></script>
+
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title>
+        Zimbra:: Inbox (12)
+    </title>
+    
+    <!-- skin is beach -->
+    
+		<link rel="stylesheet" type="text/css" href="/zimbra/css/common,login,images,skin.css;jsessionid=1kb467wm2nciu?client=standard&amp;skin=beach&amp;v=131203122109&amp;debug=" />
+    
+
+    <style type="text/css" media="screen">
+        .dragoverclass{
+            background-color:orange;
+        }
+        .proxy{
+            background-color : #cecece;
+            border : 2px solid #ccc;
+            cursor : move;
+            color : #000;
+        }
+        .proxy a {
+            text-decoration : none;
+        }
+    </style>
+	
+    <link rel="SHORTCUT ICON" href="/zimbra/img/logo/favicon.ico;jsessionid=1kb467wm2nciu" />
+    
+
+    <script type="text/javascript">
+
+        function checkAll(cb, allbox) {
+            if (cb.length)
+                for (i = 0; i &lt; cb.length; i++)
+                    cb[i].checked = allbox.checked;
+            else
+                cb.checked = allbox.checked;
+        }
+
+    </script>
+	<script type="text/javascript" src="../yui/2.7.0/yahoo-dom-event/yahoo-dom-event.js"></script>
+    
+    
+</head>
+
+<!-- skin is beach -->
+<body><div id="ddProxy" style="position: absolute; visibility: hidden; cursor: move; border: 2px solid rgb(170, 170, 170); z-index: 999; height: 25px; width: 25px;"><div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div></div>
+
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="TopContent" colspan="3" align="right" valign="top"><div style="height:6px"></div></td>
+		</tr>
+
+		<tr>
+			<td valign="top" align="center" class="Overview">
+			
+					<a href="http://www.zimbra.com" target="_new"> <span style="cursor:pointer; display: block;" class="ImgAppBanner"></span> </a>
+				
+			</td>
+			<td valign="top" class="TopContent" style="width:70%">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td width="66%">
+							
+
+<table width="100%" cellspacing="0" border="0" align="right">
+<tbody><tr style="height:35px">
+    <td height="25" nowrap="" class="SearchBar">
+        
+        <form method="get" onsubmit="return searchClick(this);" action="/zimbra/h/search;jsessionid=1kb467wm2nciu">
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody><tr>
+            <td nowrap="nowrap">
+            <label for="searchField">Buscar : </label>
+			</td>
+           <td class="ImgField_L searchwidth"></td>
+            <td class="SearchFieldWidth"><input id="searchField" class="searchField" maxlength="2048" name="sq" value="" /></td>
+            <td class="ImgField_R searchwidth"></td>
+            <td nowrap="nowrap"><input type="checkbox" name="incShared" value="1" /></td><td nowrap="nowrap"> Incluir compartidos </td>    
+                
+            <td nowrap="nowrap" style="padding-left: 2px;"> en </td>
+            <td style="padding-left: 2px;">
+            
+            <select name="st">
+                
+                    <option selected="" value="conversation">Mensajes de correo
+                    </option><option value="contact">Contactos personales
+                    </option><option value="gal">Lista general de direcciones
+                    </option><option value="appointment">Agendas personales
+            </option></select>
+            </td>
+                
+            <td style="padding-left: 10px;">
+            <input class="SearchButton" type="submit" name="search" value="Buscar" />
+            
+            </td>
+            </tr></tbody></table>
+        </form>
+    </td>
+</tr>
+</tbody></table>
+
+<script type="text/javascript">
+searchClick = function(_form){
+      if(_form.st.options[_form.st.selectedIndex].value == "web"){
+          window.open("http://search.yahoo.com/search?p="+_form.sq.value);
+          return false;
+      }else{
+          return true;
+      }
+}
+</script>
+
+						</td>
+						
+					</tr>
+				</tbody></table>
+			</td>
+			<td align="center" style="padding-right:5px;">
+				<table cellpadding="2" cellspacing="0">
+					<tbody><tr>
+						<!--td align='center' class='ZhAppSwitchLink'>
+							<a href='/zimbra/;jsessionid=1kb467wm2nciu?client=advanced'>Versión avanzada</a>
+						</td-->
+						<td>
+							 
+						</td>
+						
+							<td align="center" class="ZhAppSwitchLink">
+								<span id="switch_to_offline"><a href="http://www.zimbra.com/products/desktop.html" target="_new">Versión sin conexión</a></span>
+							</td>
+						
+					</tr>
+				</tbody></table>
+				<table cellpadding="2" cellspacing="0">
+					<tbody><tr>
+						
+						<td align="left" class="ZhAppLinks">
+							<a target="_new" href="/zimbra/help/standard/Zimbra_User_Help.htm;jsessionid=1kb467wm2nciu?locid=es_ES"><img src="/img/zimbra/ImgHelp.png" title="Ayuda" alt="Ayuda" border="0" /> Ayuda</a>
+						</td>
+						<td>
+							 
+						</td>
+						<td align="right" class="ZhAppLinks">
+							<a href="/zimbra/;jsessionid=1kb467wm2nciu?loginOp=logout"><img src="/img/zimbra/ImgLogoff.png" title="Cerrar sesión" alt="Cerrar sesión" border="0" /> Salir</a>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td class="Overview">
+				 
+			</td>
+			<td align="center" colspan="3">
+				<div id="app_status_container" style="z-index:100;position:relative;">
+<div id="app_st_msg_div" style="display:block;">
+    <table class="Statusinfo" cellpadding="2" cellspacing="2" align="center">
+    <tbody><tr>
+        <td class="Status" nowrap="nowrap">
+             Estás utilizando la versión estándar de Zimbra
+        </td>
+        <td width="20%" align="right" nowrap="nowrap"><a onclick="return dismissMsg();" href="?dmsg&amp;mesg=welcome&amp;init=true">Cerrar</a>  </td>
+    </tr>
+    </tbody></table>
+</div>
+
+<script>
+var dismissMsg = function(){
+	
+	try{document.getElementById("app_st_msg_div").style.display='none';return false;} catch(ex) {return true;}
+}
+</script>
+</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="Overview" style="padding-right:5px">
+				
+<table id="skin_container_tree_top" cellspacing="0" cellpadding="0" style="width:100%">
+   <tbody><tr>
+	<td>
+        
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr>
+                <td align="center" style="font-size:9px">
+                    <div style="width:160px;overflow:hidden;">
+                    <b>Yesica Fernanda  Guayabo Cano</b>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size:9px">
+                    33,57 MB de 100 MB    
+                </td>
+            </tr>
+        </tbody></table>
+        
+    </td>
+  </tr>
+</tbody></table>
+
+			</td>
+			
+			<td id="skin_container_app_chooser_lite" colspan="2" valign="bottom" style="padding:0px">
+				
+
+<table cellpadding="0" border="0" cellspacing="0">
+    <tbody><tr class="Tabs">
+        <td class="TabSpacer">
+        
+        </td><td class="Tab TabSelected">
+            <a id="TAB_MAIL" href="/zimbra/h/search;jsessionid=1kb467wm2nciu">
+              <span id="tab_ikon_mail"><img src="/img/zimbra/ImgMailApp.png" title="Correo" alt="Correo" />
+              </span>
+                <span>Correo</span>
+            </a>
+        </td>
+        
+        <td class="TabSpacerR">
+        
+            </td><td class="TabSpacer">
+            </td><td class="Tab TabNormal">
+                <a id="TAB_ADDRESSBOOK" href="/zimbra/h/search;jsessionid=1kb467wm2nciu?st=contact">
+                   <span id="tab_ikon_contacts"><img src="/img/zimbra/ImgContact.png" title="Libreta de direcciones" alt="Libreta de direcciones" /></span><span>Libreta de direcciones</span></a>
+            </td>
+            <td class="TabSpacerR">
+        
+            </td><td class="TabSpacer">
+            </td><td class="Tab TabNormal">
+                <a id="TAB_CALENDAR" href="/zimbra/h/calendar;jsessionid=1kb467wm2nciu">
+                    <span id="tab_ikon_calendar"><img src="/img/zimbra/ImgCalendarApp.png" title="Agenda" alt="Agenda" /></span><span>Agenda</span></a>
+            </td>
+            <td class="TabSpacerR">
+        
+	        </td><td class="TabSpacer">
+	        </td><td class="Tab TabNormal">
+                <a id="TAB_OPTIONS" href="/zimbra/h/options;jsessionid=1kb467wm2nciu?prev=mail">
+	                <span id="tab_ikon_options"><img src="/img/zimbra/ImgPreferences.png" title="Opciones" alt="Opciones" /></span><span>Preferencias</span></a>
+	        </td>
+	        <td class="TabSpacerR">
+        
+        </td><td class="TabSpacer">
+        </td><td class="Tab TabNormal">
+            
+            <a id="TAB_COMPOSE" href="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=compose"><span id="tab_ikon_compose"><img src="/img/zimbra/ImgNewMessage.png" title="Redactar nuevo mensaje" alt="Redactar nuevo mensaje" /></span><span>Redactar</span></a>
+        </td>
+        <td class="TabSpacerR">
+        
+		    </td><td class="TabSpacer">
+		    </td><td class="TabFiller"> </td>
+	    
+    </tr>
+</tbody></table>
+
+			</td>
+		</tr>
+		<tr>
+			
+				<td valign="top" class="Overview">
+					
+
+
+<div class="Tree">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody><tr class="TreeHeaderRow">
+            
+               <th style="width:20px"><a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?collapse=folders"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%">Carpetas</th>
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                
+                <a id="MFOLDERS" href="/zimbra/h/mfolders;jsessionid=1kb467wm2nciu">editar </a>
+            </th>
+        </tr>
+ 
+        
+<tr>
+    <td nowrap="" colspan="3" id="folder_2" class="Folder Unread" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?sfi=2" id="FLDR2">
+            <img src="/img/zimbra/ImgInbox.png" title="Bandeja de entrada" alt="Bandeja de entrada" />
+            <span title="Bandeja de entrada" class="ZhTISelected">Bandeja de ...
+                (12) </span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_5" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?sfi=5" id="FLDR5">
+            <img src="/img/zimbra/ImgSentFolder.png" title="Enviados" alt="Enviados" />
+            <span title="Enviados">Enviados</span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_6" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?sfi=6" id="FLDR6">
+            <img src="/img/zimbra/ImgDraftFolder.png" title="Borradores" alt="Borradores" />
+            <span title="Borradores">Borradores</span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_4" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?sfi=4" id="FLDR4">
+            <img src="/img/zimbra/ImgSpamFolder.png" title="Spam" alt="Spam" />
+            <span title="Spam">Spam</span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_3" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?sfi=3" id="FLDR3">
+            <img src="/img/zimbra/ImgTrash.png" title="Papelera" alt="Papelera" />
+            <span title="Papelera">Papelera</span>
+        </a>
+
+    </td></tr>
+
+
+    </tbody></table>
+    
+</div>
+
+
+
+<div class="Tree">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            
+            <th style="width:20px"><a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?collapse=searches"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%">Búsquedas</th>
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                
+                <a href="/zimbra/h/mfolders;jsessionid=1kb467wm2nciu">editar</a>
+            </th>
+        </tr>
+        
+    </tbody></table>
+</div>
+
+
+<div class="TagTree Tree">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          
+        <tbody><tr>
+            
+            <th style="width:20px"><a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?collapse=tags"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%"> Etiquetas</th>
+            
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                <a id="MTAGS" href="/zimbra/h/mtags;jsessionid=1kb467wm2nciu">editar </a>
+            </th>
+        </tr>
+        
+    </tbody></table>
+</div>
+
+				</td>
+			
+			<td valign="top" colspan="3" style="padding-left:0px">
+			
+<form name="zform" action="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=0&amp;sc=15641&amp;st=conversation" method="post">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tbody><tr>
+	<td class="TbTop">
+		
+
+<table width="100%" cellspacing="0" cellpadding="0" class="Tb">
+	<tbody><tr valign="middle">
+		<td class="TbBt">
+			<table cellspacing="0" cellpadding="0" class="Tb">
+				<tbody><tr>
+					
+							<td norwap="">
+								
+								<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?st=conversation"><img src="/img/zimbra/ImgRefresh.png" title="Actualizar" alt="Actualizar" /><span> Actualizar</span></a>
+							</td>
+						
+					<td><div class="vertSep"></div></td>
+					
+						<td nowrap="">
+							
+							<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=compose"><img src="/img/zimbra/ImgNewMessage.png" title="Redactar" alt="Redactar" /><span> Redactar</span></a>
+						</td>
+						<td><div class="vertSep"></div></td>
+                        
+					<td height="100%" nowrap="" valign="middle" style="padding: 0 1px 0 1px">
+						<input onclick="zprint();return false;" id="IOPPRINT" name="actionPrint" type="image" src="/zimbra/img/zimbra/ImgPrint.png;jsessionid=1kb467wm2nciu" alt="Imprimir" title="Imprimir" />
+					</td>
+					<td height="100%" nowrap="" valign="middle" style="padding: 0 1px 0 1px">
+						<input onclick="zprint();return false;" id="SOPPRINT" name="actionPrint" type="submit" value="Imprimir" title="Imprimir" />
+					</td>
+					
+					<td><div class="vertSep"></div></td>
+					
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionDelete" type="image" src="/zimbra/img/zimbra/ImgDelete.png;jsessionid=1kb467wm2nciu" id="IOPDELETE" alt="Mover elemento(s) seleccionado(s) a la Papelera" title="Mover elemento(s) seleccionado(s) a la Papelera" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" id="SOPDELETE" name="actionDelete" type="submit" value="Eliminar" title="Mover elemento(s) seleccionado(s) a la Papelera" /></td>
+
+					<td><div class="vertSep"></div></td>
+					
+						<td nowrap="" valign="middle">
+							<input type="hidden" value="" id="drag_target_folder" name="dragTargetFolder" />
+							<input type="hidden" value="" id="drag_msg_id" name="dragMsgId" />
+							<select name="folderId" onchange="zclick('SOPMOVE')">
+								<option value="" selected="">Mover a...</option>
+								<optgroup label="----------">
+								
+										<option id="OPFLDR2" value="m:2">Bandeja ...</option>
+									
+										<option id="OPFLDR5" value="m:5">Enviados</option>
+									
+								</optgroup>
+							</select>
+						</td>
+						
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" id="SOPMOVE" name="actionMove" type="submit" value="Mover" title="Mover elementos seleccionados" /></td>
+
+						<td><div class="vertSep"></div></td>
+					
+					<td nowrap="" valign="middle">
+						<select name="actionOp" onchange="zclick('SOPGO')">
+							<option value="" selected="">Acciones
+							</option><option id="OPREAD" value="read">Marcar como leído
+							</option><option id="OPUNREAD" value="unread">Marcar como no leído
+							</option><option id="OPFLAG" value="flag">Añadir marca
+							</option><option id="OPUNFLAG" value="unflag">Quitar marca
+									</option><option id="OPSPAM" value="actionSpam">Spam
+						</option></select>
+					</td>
+					
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" id="SOPGO" name="action" type="submit" value="Ir" title="Ejecutar acción para las conversaciones seleccionadas" /></td>
+
+				</tr>
+			</tbody></table>
+		</td>
+		<td nowrap="" align="right">
+			<img src="/img/zimbra/ImgLeftArrow.png" title="No hay página anterior" alt="No hay página anterior" class=" ImgDisabled" border="0" />    
+<span class="Paging">
+1 - 25
+</span>
+
+    <a id="NEXT_PAGE" href="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=25&amp;sc=15641&amp;st=conversation"><img src="/img/zimbra/ImgRightArrow.png" title="ir a la siguiente página" alt="ir a la siguiente página" border="0" /></a>
+
+		</td>
+	</tr>
+</tbody></table>
+
+	</td>
+</tr>
+<tr>
+	<td>
+		<table width="100%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+		<td class="List" valign="top" width="100%">
+		<table width="100%" cellpadding="2" cellspacing="0">
+			<tbody><tr class="Header">
+                <th class="CB" nowrap="nowrap"><input id="OPCHALL" onclick="checkAll(document.zform.id,this)" type="checkbox" name="allids" /></th>
+                <th class="Img" nowrap=""><img src="/img/zimbra/ImgNodeCollapsed.png" /></th>
+				
+					<th class="Img" nowrap="nowrap"><img src="/img/zimbra/ImgFlagRed.png" title="Marcado" alt="Marcado" /></th>
+				
+					<th class="ImgNarrow" nowrap="nowrap"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad" alt="Prioridad" /></th>
+				
+					<th class="Img" nowrap=""><img src="/img/zimbra/ImgTag.png" title="Etiqueta" alt="Etiqueta" /></th>
+				
+                <th class="Img" nowrap=""><img src="/img/zimbra/ImgMsgStatus.png" /></th>
+				<th width="160" nowrap="">De</th>
+				<th class="Img" nowrap=""><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></th>
+				<th nowrap="">
+					
+					<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?st=conversation&amp;ss=subjAsc">
+						Asunto
+					</a></th>
+				<th width="20" nowrap=""><img src="/img/zimbra/ImgConversation.png" title="Conversación" alt="Conversación" /></th>
+				<th nowrap="" width="5%">
+					
+					<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?st=conversation&amp;ss=dateAsc">
+						Recibido
+					</a>
+                </th>
+			</tr>
+		</tbody></table>
+        <div style="overflow:auto;height:291px">
+		<table width="100%" cellpadding="2" cellspacing="0">
+            <tbody id="mess_list_tbody">
+				
+					<tr onclick="zSelectRow(event,&quot;A0&quot;,&quot;C0&quot;)" id="R0" class="ZhRow RowSelected">
+						<td class="CB" nowrap="nowrap"><input id="C0" type="checkbox" name="id" value="-394" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=0&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-394" id="A0">
+								
+								<span>Actualidad Choucair: las noticias de tu compañía</span>
+                                
+									<span class="Fragment"> - &lt;https://choucairtesting.sharepoint.com/sites/Intran ...</span>
+								
+							</a>
+							
+									<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=1&amp;so=0&amp;sc=15641&amp;st=conversation" id="NEXT_ITEM"></a>
+								
+						</td>
+                        <td width="15"> </td>
+						<td width="65">27 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A1&quot;,&quot;C1&quot;)" id="R1" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C1" type="checkbox" name="id" value="-393" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad alta" alt="Prioridad alta" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Luz Angela Rayo ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=1&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-393" id="A1">
+								
+								<span>CORRECCIÓN MAXTIME</span>
+                                
+									<span class="Fragment"> - Buenos Días, Los días ya se encuentran abiertos en MaxTime para que realicen las ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">27 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A2&quot;,&quot;C2&quot;)" id="R2" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C2" type="checkbox" name="id" value="-388" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad alta" alt="Prioridad alta" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Luz Angela Rayo ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=2&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-388" id="A2">
+								
+								<span>CORRECCINES MAXTIME</span>
+                                
+									<span class="Fragment"> - Buenas Tardes, Por favor tener más cuidado a la hora de reportar ya que se ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">26 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A3&quot;,&quot;C3&quot;)" id="R3" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C3" type="checkbox" name="id" value="-385" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=3&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-385" id="A3">
+								
+								<span>Compensar te invita a vivir la experiencia: haz que suceda</span>
+                                
+									<span class="Fragment"> - ¡Buenas tardes apreciados colaboradores! ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">26 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A4&quot;,&quot;C4&quot;)" id="R4" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C4" type="checkbox" name="id" value="-379" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Andres Giovanni ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=4&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-379" id="A4">
+								
+								<span>Archivos</span>
+                                
+									<span class="Fragment"> - link reporte tiempos ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A5&quot;,&quot;C5&quot;)" id="R5" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C5" type="checkbox" name="id" value="-378" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=5&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-378" id="A5">
+								
+								<span>Tip SSTA: Cómo reaccionar en un incidente y/o accidente de ...</span>
+                                
+									<span class="Fragment"> - [cid:c21bcc34-bafd-4cbd-a71a-c6706 ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A6&quot;,&quot;C6&quot;)" id="R6" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C6" type="checkbox" name="id" value="384" /></td>
+                        <td class="Img" nowrap="">
+                            <a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=6&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=384" id="A6"><img src="/img/zimbra/ImgNodeCollapsed.png" /></a>
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad alta" alt="Prioridad alta" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Luz, Yesica
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=6&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=384" id="A6">
+								
+								<span>RV: Reportes Maxtime Julio</span>
+                                
+									<span class="Fragment"> - Buenas Tardes, Por favor tener en cuenta el error del reporte que se ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15">(2) </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A7&quot;,&quot;C7&quot;)" id="R7" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C7" type="checkbox" name="id" value="373" /></td>
+                        <td class="Img" nowrap="">
+                            <a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=7&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=373" id="A7"><img src="/img/zimbra/ImgNodeCollapsed.png" /></a>
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad alta" alt="Prioridad alta" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">emedranoo, Sandra, ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=7&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=373" id="A7">
+								
+								<span>RE: ingreso nuevos analistas</span>
+                                
+									<span class="Fragment"> - Buenos días, Estoy de acuerdo con Yesid de la fecha estimada de examen. ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15">(4) </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A8&quot;,&quot;C8&quot;)" id="R8" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C8" type="checkbox" name="id" value="-374" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=8&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-374" id="A8">
+								
+								<span>Atención: Autogestión de contraseñas</span>
+                                
+									<span class="Fragment"> - ¡Buenos días apreciados colaboradores! Los invitamos a leer ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A9&quot;,&quot;C9&quot;)" id="R9" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C9" type="checkbox" name="id" value="-371" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Choucair Testing en ...
+						</td>
+						<td class="Img"> </td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=9&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-371" id="A9">
+								
+								<span>Actualizaciones de All Company</span>
+                                
+									<span class="Fragment"> - ==Actualizaciones de tus grupos de Yammer== 1 de los grupos tiene ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">25 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A10&quot;,&quot;C10&quot;)" id="R10" class="ZhRow Unread">
+						<td class="CB" nowrap="nowrap"><input id="C10" type="checkbox" name="id" value="-370" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Duver Harvey ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=10&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-370" id="A10">
+								
+								<span>Admin</span>
+                                
+									<span class="Fragment"> - Buen día, Envío datos del usuario creado temporalmente, en cuanto termines las configuraciones ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">24 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A11&quot;,&quot;C11&quot;)" id="R11" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C11" type="checkbox" name="id" value="-368" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">no-reply@choucairtes ...
+						</td>
+						<td class="Img"> </td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=11&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-368" id="A11">
+								
+								<span>[GLPI #0006770] Incidencia resuelta solicitud instalación ...</span>
+                                
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A12&quot;,&quot;C12&quot;)" id="R12" class="ZhRow Unread">
+						<td class="CB" nowrap="nowrap"><input id="C12" type="checkbox" name="id" value="-367" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Duver Harvey ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=12&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-367" id="A12">
+								
+								<span>Conexion Remota</span>
+                                
+									<span class="Fragment"> - https://choucairtestingsupport.screenconnect.com/?Session=7842fac7-2b70-47fe-a013-590 ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A13&quot;,&quot;C13&quot;)" id="R13" class="ZhRowOdd Unread">
+						<td class="CB" nowrap="nowrap"><input id="C13" type="checkbox" name="id" value="-366" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Duver Harvey ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=13&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-366" id="A13">
+								
+								<span>Conexion remota</span>
+                                
+									<span class="Fragment"> - https://choucairtestingsupport.screenconnect.com/?Session=aed297aa-8818-49c8-b133-a7a ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A14&quot;,&quot;C14&quot;)" id="R14" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C14" type="checkbox" name="id" value="-364" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">no-reply@choucairtes ...
+						</td>
+						<td class="Img"> </td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=14&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-364" id="A14">
+								
+								<span>[GLPI #0006770] Nueva incidencia solicitud instalación de ...</span>
+                                
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A15&quot;,&quot;C15&quot;)" id="R15" class="ZhRowOdd Unread">
+						<td class="CB" nowrap="nowrap"><input id="C15" type="checkbox" name="id" value="357" /></td>
+                        <td class="Img" nowrap="">
+                            <a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=15&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=357" id="A15"><img src="/img/zimbra/ImgNodeCollapsed.png" /></a>
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityHigh_list.png" title="Prioridad alta" alt="Prioridad alta" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Yesica, emedranoo, ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=15&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=357" id="A15">
+								
+								<span>RE: Control De Días Pendientes Por Cerrar</span>
+                                
+									<span class="Fragment"> - Buenos Días, Por favor indicarme a que proyecto debo ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15">(5) </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A16&quot;,&quot;C16&quot;)" id="R16" class="ZhRow Unread">
+						<td class="CB" nowrap="nowrap"><input id="C16" type="checkbox" name="id" value="-360" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Choucair Testing en ...
+						</td>
+						<td class="Img"> </td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=16&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-360" id="A16">
+								
+								<span>Actualizaciones de All Company</span>
+                                
+									<span class="Fragment"> - ==Actualizaciones de tus grupos de Yammer== 1 de los grupos tiene ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">23 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A17&quot;,&quot;C17&quot;)" id="R17" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C17" type="checkbox" name="id" value="-353" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=17&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-353" id="A17">
+								
+								<span>Zoociedad Choucair - ¿Tiene tu mascota las vacunas al día? </span>
+                                
+									<span class="Fragment"> - [cid:278187f4-4bbf-4e35-be0b-b7b136db466e ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">19 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A18&quot;,&quot;C18&quot;)" id="R18" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C18" type="checkbox" name="id" value="-352" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=18&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-352" id="A18">
+								
+								<span>Actualidad Choucair: las noticias de tu compañía</span>
+                                
+									<span class="Fragment"> - [cid:dad34ad9-7be4-4c62-bfbe-cba7b7e5b705]&lt;https://c ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">19 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A19&quot;,&quot;C19&quot;)" id="R19" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C19" type="checkbox" name="id" value="-350" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=19&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-350" id="A19">
+								
+								<span>Ventana de mantenimiento, sábado 28 de julio</span>
+                                
+									<span class="Fragment"> - Buenos días apreciados colaboradores Compartimos con ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">19 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A20&quot;,&quot;C20&quot;)" id="R20" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C20" type="checkbox" name="id" value="-349" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Choucair Testing en ...
+						</td>
+						<td class="Img"> </td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=20&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-349" id="A20">
+								
+								<span>Actualizaciones de All Company</span>
+                                
+									<span class="Fragment"> - ==Actualizaciones de tus grupos de Yammer== 1 de los grupos tiene ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">19 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A21&quot;,&quot;C21&quot;)" id="R21" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C21" type="checkbox" name="id" value="-348" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=21&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-348" id="A21">
+								
+								<span>Clasificados Choucair: ¿Compras? ¿Vendes? Llegaste al lugar ...</span>
+                                
+									<span class="Fragment"> - ¡Buenas tardes apreciados ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">18 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A22&quot;,&quot;C22&quot;)" id="R22" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C22" type="checkbox" name="id" value="-347" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Luz Angela Rayo ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=22&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-347" id="A22">
+								
+								<span>MaxTime</span>
+                                
+									<span class="Fragment"> - Buenas Tardes, Ya te encuentras vinculada al cliente ALKOSTO y a su proyecto para que ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">18 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A23&quot;,&quot;C23&quot;)" id="R23" class="ZhRowOdd">
+						<td class="CB" nowrap="nowrap"><input id="C23" type="checkbox" name="id" value="-346" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=23&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=-346" id="A23">
+								
+								<span>Compensar: Nuevo convenio con la cadena de gimnasios más ...</span>
+                                
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">18 de jul</td>
+					</tr>
+                    
+					<tr onclick="zSelectRow(event,&quot;A24&quot;,&quot;C24&quot;)" id="R24" class="ZhRow">
+						<td class="CB" nowrap="nowrap"><input id="C24" type="checkbox" name="id" value="345" /></td>
+                        <td class="Img" nowrap="">
+                            
+                        </td>
+                        
+							<td class="Img"> </td>
+						
+							<td class="ImgNarrow"><img src="/img/zimbra/ImgPriorityNormal_list.gif" title="Prioridad normal" alt="Prioridad normal" /></td>
+						
+							<td class="Img"> </td>
+						
+                        <td class="Img"> </td>
+						<td width="160">Comunicaciones ...
+						</td>
+						<td class="Img"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+						<td>
+							<a href="search;jsessionid=1kb467wm2nciu?su=1&amp;si=24&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=rowView&amp;cid=345" id="A24">
+								
+								<span> Zoociedad Choucair: Rifa pro-cuido y esterilización ...</span>
+                                
+									<span class="Fragment"> - ¡Buenos días apreciados colaboradores! ...</span>
+								
+							</a>
+							
+						</td>
+                        <td width="15"> </td>
+						<td width="65">18 de jul</td>
+					</tr>
+                    
+			</tbody>
+        </table>
+        </div>
+        
+    	</td>
+        </tr>
+        </tbody></table>
+    </td>
+    </tr>
+<tr>                    
+
+<td class="ZhAppColContent" valign="top" width="55%">
+
+          <div class="NoResults">Para ver un mensaje, haz clic en él.</div>
+     
+</td>
+</tr>
+
+<tr>
+	<td class="TbBottom">
+		
+
+<table width="100%" cellspacing="0" cellpadding="0" class="Tb">
+	<tbody><tr valign="middle">
+		<td class="TbBt">
+			<table cellspacing="0" cellpadding="0" class="Tb">
+				<tbody><tr>
+					
+							<td norwap="">
+								
+								<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?st=conversation"><img src="/img/zimbra/ImgRefresh.png" title="Actualizar" alt="Actualizar" /><span> Actualizar</span></a>
+							</td>
+						
+					<td><div class="vertSep"></div></td>
+					
+						<td nowrap="">
+							
+							<a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=0&amp;sc=15641&amp;st=conversation&amp;action=compose"><img src="/img/zimbra/ImgNewMessage.png" title="Redactar" alt="Redactar" /><span> Redactar</span></a>
+						</td>
+						<td><div class="vertSep"></div></td>
+                        
+					<td height="100%" nowrap="" valign="middle" style="padding: 0 1px 0 1px">
+						<input onclick="zprint();return false;" id="" name="actionPrint" type="image" src="/zimbra/img/zimbra/ImgPrint.png;jsessionid=1kb467wm2nciu" alt="Imprimir" title="Imprimir" />
+					</td>
+					<td height="100%" nowrap="" valign="middle" style="padding: 0 1px 0 1px">
+						<input onclick="zprint();return false;" id="" name="actionPrint" type="submit" value="Imprimir" title="Imprimir" />
+					</td>
+					
+					<td><div class="vertSep"></div></td>
+					
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionDelete" type="image" src="/zimbra/img/zimbra/ImgDelete.png;jsessionid=1kb467wm2nciu" alt="Mover elemento(s) seleccionado(s) a la Papelera" title="Mover elemento(s) seleccionado(s) a la Papelera" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionDelete" type="submit" value="Eliminar" title="Mover elemento(s) seleccionado(s) a la Papelera" /></td>
+
+					<td><div class="vertSep"></div></td>
+					
+						<td nowrap="" valign="middle">
+							<input type="hidden" value="" id="drag_target_folder" name="dragTargetFolder" />
+							<input type="hidden" value="" id="drag_msg_id" name="dragMsgId" />
+							<select name="folderId" onchange="zclick('SOPMOVE')">
+								<option value="" selected="">Mover a...</option>
+								<optgroup label="----------">
+								
+										<option value="m:2">Bandeja ...</option>
+									
+										<option value="m:5">Enviados</option>
+									
+								</optgroup>
+							</select>
+						</td>
+						
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionMove" type="submit" value="Mover" title="Mover elementos seleccionados" /></td>
+
+						<td><div class="vertSep"></div></td>
+					
+					<td nowrap="" valign="middle">
+						<select name="actionOp" onchange="zclick('SOPGO')">
+							<option value="" selected="">Acciones
+							</option><option value="read">Marcar como leído
+							</option><option value="unread">Marcar como no leído
+							</option><option value="flag">Añadir marca
+							</option><option value="unflag">Quitar marca
+									</option><option value="actionSpam">Spam
+						</option></select>
+					</td>
+					
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="action" type="submit" value="Ir" title="Ejecutar acción para las conversaciones seleccionadas" /></td>
+
+				</tr>
+			</tbody></table>
+		</td>
+		<td nowrap="" align="right">
+			<img src="/img/zimbra/ImgLeftArrow.png" title="No hay página anterior" alt="No hay página anterior" class=" ImgDisabled" border="0" />    
+<span class="Paging">
+1 - 25
+</span>
+
+    <a href="/zimbra/h/search;jsessionid=1kb467wm2nciu?si=0&amp;so=25&amp;sc=15641&amp;st=conversation"><img src="/img/zimbra/ImgRightArrow.png" title="ir a la siguiente página" alt="ir a la siguiente página" border="0" /></a>
+
+		</td>
+	</tr>
+</tbody></table>
+
+	</td>
+</tr>
+</tbody></table>
+<input type="hidden" name="doConvListViewAction" value="1" />
+<input type="hidden" name="crumb" value="088774c05b6695e55436ad26c7f63bec" />
+<input id="sr" type="hidden" name="selectedRow" value="0" />
+
+</form>
+
+<script type="text/javascript">
+	&lt;!--
+	var zrc = 25;
+	var zsr = 0;
+	var zss = function(r,s) {
+		var e = document.getElementById("R"+r);
+		if (e == null) return;
+		if (s) {
+			if (e.className.indexOf(" RowSelected") == -1) e.className = e.className + " RowSelected";
+			var e2 = document.getElementById("sr"); if (e2) e2.value = r;
+		}
+		else { if (e.className.indexOf(" RowSelected") != -1) e.className = e.className.replace(" RowSelected", "");}
+	}
+	var zsn = function() {if (zrc == 0 || (zsr+1 == zrc)) return; zss(zsr, false); zss(++zsr, true);}
+	var zsp = function() {if (zrc == 0 || (zsr == 0)) return; zss(zsr, false); zss(--zsr, true);}
+	var zos = function() {if (zrc == 0) return; var e = document.getElementById("A"+zsr); if (e &amp;&amp; e.href) window.location = e.href;}
+	var zcs = function(c) {if (zrc == 0) return; var e = document.getElementById("C"+zsr); if (e) e.checked = c ? c : !e.checked;}
+	var zcsn = function () { zcs(true); zsn(); }
+	var zcsp = function () { zcs(true); zsp(); }
+	var zclick = function(id) { var e2 = document.getElementById(id); if (e2) e2.click(); }
+	var zaction = function(a) { var e = document.getElementById(a); if (e) { e.selected = true; zclick("SOPGO"); }}
+	var zmove = function(a) { var e = document.getElementById(a); if (e) { e.selected = true; zclick("SOPMOVE"); }}
+	var zunflag = function() { zaction("OPUNFLAG"); }
+	var zflag = function() { zaction("OPFLAG"); }
+	var zread = function() { zaction("OPREAD"); }
+	var zunread = function() { zaction("OPUNREAD"); }
+	var zjunk = function() { zclick("SOPSPAM"); }
+	function setactionOp(val) {
+		document.getElementById("actionOp").value = val;
+		zclick('SOPSET');
+	}
+	function setviewOp(val) {
+		document.getElementById("viewOp").value = val;
+		zclick('SOPSET');
+	}
+	function setreadingPaneOp(val) {
+    	document.getElementById("readingPaneOp").value = val;
+		zclick("SOPVIEW");
+	}
+	function zSelectRow(ev,id,cid) {
+		var t = ev.target || ev.srcElement;
+		if (t&amp;&amp;t.className=="CB") {
+			var cb = document.getElementById(cid);
+			if (cb) {
+				cb.checked = !cb.checked;
+			}
+		} else if (t&amp;&amp;t.nodeName != 'INPUT'){
+			var a = document.getElementById(id);
+			if (a)
+				window.location = a.href;
+		}
+	}
+
+	var zprint = function(){
+		try{
+			var idex = 0;
+			var c ="";
+			var elemid = document.getElementsByName('id');
+            var elemidcv = document.getElementsByName('idcv');
+            /*
+            All conversations and messages(virtual conv) have the same name(id),
+            loop over to find which of them is selected
+             */
+            while (elemid[idex]) {
+                if (elemid[idex].checked) {
+                    cid = elemid[idex].value;
+                    c += "C:"+cid+",";
+                }
+                idex++;
+            }
+            idex = 0;
+            /*
+            Since conversations can be expanded inline, all the messages that are part of conversations
+            have the same name(idcv), loop over to find which of them is selected.
+             */
+            while (elemidcv[idex]) {
+                if (elemidcv[idex].checked) {
+                    cid = elemidcv[idex].value;
+                    c += cid+",";
+                }
+                idex++;
+            }
+            if (c.charAt(c.length-1) == ',') {
+                c = c.substr(0, c.length-1);
+            }
+		}catch(ex){
+		}
+		if(c == ""){
+			alert("No has seleccionado una conversación.");return;
+		}
+		window.open("/h/printmessage?id="+c);
+	}
+
+   //--&gt;
+</script>
+
+
+<script type="text/javascript">
+(function() {
+
+	var target = [], lastTarget = false;
+	YAHOO.util.DDM.mode = YAHOO.util.DDM.INTERSECT;
+
+	var $E = YAHOO.util.Event;
+	var $D = YAHOO.util.Dom;
+	var $ = $D.get;
+	//YAHOO.util.Event.onDOMReady(onReady)
+	// setTimeout(onReady, 2000);
+
+	function init() {
+		var rowId, rowObj, rowNo, mesgId, endDr = false;
+
+	
+
+		var ids_str = "2,4,5,3,";
+		var ids  = ids_str.split(",");
+		for(var i=0;i&lt;ids.length; i++){
+			if(ids[i] != ""){
+				if ($D.get("folder_"+ids[i])) {
+					target[target.length] = new YAHOO.util.DDTarget("folder_"+ids[i]);
+				}
+			}
+		}
+
+
+		var tBody = $("mess_list_tbody");
+		var drop = new YAHOO.util.DDProxy(tBody, 'default', { dragElId: "ddProxy", resizeFrame: false, centerFrame: false });
+
+		drop.onMouseDown = function(ev) {
+			/*get TR el. from event obj */
+			var target = $E.getTarget(ev);
+			var parentNode = target.parentNode;
+			while (parentNode.nodeName != "TR"){
+				parentNode = parentNode.parentNode;
+			}
+			rowId = parentNode.id;
+			rowObj = parentNode;
+			rowNo = rowId.substring(1);
+
+			/* to support multiple drag &amp; drop */
+			var msgIds = [];
+			var count = 0;
+			for(var k = 0 ; k &lt; zrc ; k++) {
+				if(document.getElementById("C"+k).checked) {
+					msgIds[count] = document.getElementById("C"+k).value;
+					count++;
+
+				}
+			}
+			var msgIdstr = msgIds.join(",");
+			mesgId = (msgIdstr != "") ? msgIdstr : document.getElementById("C"+rowNo).value;
+
+			this.deltaY = 15;
+			this.deltaX = (YAHOO.util.Event.getPageX(ev) - $D.getXY(document.getElementById(rowId))[0]);
+
+		};
+
+		drop.startDrag= function(){
+			var dragEl = this.getDragEl();
+			var clickEl = document.getElementById(rowId);
+			var msglen = mesgId.split(",").length;
+			dragEl.innerHTML = (msglen &gt; 1) ? '&lt;td&gt;&lt;img id="zldragdrop" src="/zimbra/img/large/ImgDndMultiNo_48.gif;jsessionid=1kb467wm2nciu"/&gt;&lt;div style="position:absolute;top:27;left:23;color:white;width:20px;text-align:center;font-weight:bold;"&gt;'+msglen+'&lt;/div&gt;&lt;/td&gt;' : clickEl.innerHTML;
+			document.getElementById("C"+rowNo).checked = true;
+			if(msglen == 1) {
+				dragEl.style.border = "2px solid #aaa";
+				$D.setStyle(dragEl, "color", $D.getStyle(clickEl, "color"));
+				$D.setStyle(dragEl, "height", clickEl.offsetHeight+"px");
+				$D.setStyle(dragEl, "width", "70%");
+				$D.addClass(dragEl.id, "proxy");
+			} else {
+				dragEl.style.border = "none";
+				$D.setStyle(dragEl, "color", "");
+				$D.setStyle(dragEl, "height","");
+				$D.setStyle(dragEl, "width", "");
+				$D.removeClass(dragEl.id, "proxy");
+			}
+		};
+
+		drop.endDrag = function(){
+			/* on proper drop dont animate it back to its place */
+			if(!endDr){
+				//var srcEl = this.getEl();
+				var srcEl = document.getElementById(rowId);
+				var proxy  = this.getDragEl();
+				/* Show the proxy element and animate it to the src element's location */
+				$D.setStyle(proxy, "visibility", "");
+				var a = new YAHOO.util.Motion(
+						proxy, {
+					points: {
+						to: $D.getXY(srcEl)
+					}
+				},0.6,YAHOO.util.Easing.easeOut )
+				var proxyid = proxy.id;
+				var thisid = this.id;
+
+				/* Hide the proxy and show the source element when finished with the animation */
+				a.onComplete.subscribe(function() {
+					$D.setStyle(proxyid, "visibility", "hidden");
+					$D.setStyle(thisid, "visibility", "");
+				});
+				a.animate();
+			}
+		};
+
+		drop.onDragOver= function(ev, id){
+			var msglen = mesgId.split(",").length;
+			if (lastTarget) {
+				$D.removeClass(lastTarget,'dragoverclass');
+				if(msglen &gt; 1) {
+					document.getElementById("zldragdrop").src = "/zimbra/img/large/ImgDndMultiNo_48.gif;jsessionid=1kb467wm2nciu";
+				}
+			}
+			lastTarget = id[0].id;
+			$D.addClass(lastTarget,'dragoverclass');
+			if(msglen &gt; 1) {
+				document.getElementById("zldragdrop").src = "/zimbra/img/large/ImgDndMultiYes_48.gif;jsessionid=1kb467wm2nciu";
+			}
+		};
+
+		drop.onDragOut= function(ev, id){
+			id = id[0].id;
+			$D.removeClass(id,'dragoverclass');
+			var msglen = mesgId.split(",").length;
+			if(msglen &gt; 1) {
+				document.getElementById("zldragdrop").src = "/zimbra/img/large/ImgDndMultiNo_48.gif;jsessionid=1kb467wm2nciu";
+			}
+		};
+
+		drop.onDragDrop= function(ev, id){
+			var proxyId  = this.getDragEl().id;
+			id=id[0].id;
+			/*remove class after a little delay to make user sure of wher he dropped*/
+			window.setTimeout( function() { $D.removeClass(id,'dragoverclass'); }, 800 );
+			$D.setStyle(proxyId, "visibility", "hidden");
+			YAHOO.util.DragDropMgr.stopDrag(ev,true);
+
+			endDr = true ;
+			targId=id.split("_")[1];
+			$("drag_target_folder").value="m:"+targId;
+			$("drag_msg_id").value = mesgId;
+			zclick('SOPMOVE');
+
+		};
+	}
+
+	YAHOO.util.Event.addListener(window, 'load', init);
+
+})();
+
+</script>
+
+		</td>
+		
+		<td style="width:6px;">
+			  
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"> </td>
+	</tr>
+	</tbody></table>
+
+
+
+
+</body></html>

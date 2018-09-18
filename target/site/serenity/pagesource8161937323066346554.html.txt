@@ -1,0 +1,524 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title>
+        Zimbra:: Adjuntar ficheros
+    </title>
+    
+    <!-- skin is beach -->
+    
+		<link rel="stylesheet" type="text/css" href="/zimbra/css/common,login,images,skin.css?client=standard&amp;skin=beach&amp;v=131203122109&amp;debug=" />
+    
+
+    <style type="text/css" media="screen">
+        .dragoverclass{
+            background-color:orange;
+        }
+        .proxy{
+            background-color : #cecece;
+            border : 2px solid #ccc;
+            cursor : move;
+            color : #000;
+        }
+        .proxy a {
+            text-decoration : none;
+        }
+    </style>
+	
+    <link rel="SHORTCUT ICON" href="/zimbra/img/logo/favicon.ico" />
+    
+
+    <script type="text/javascript">
+
+        function checkAll(cb, allbox) {
+            if (cb.length)
+                for (i = 0; i &lt; cb.length; i++)
+                    cb[i].checked = allbox.checked;
+            else
+                cb.checked = allbox.checked;
+        }
+
+    </script>
+	<script type="text/javascript" src="../yui/2.7.0/yahoo-dom-event/yahoo-dom-event.js"></script>
+    
+    
+</head>
+
+<!-- skin is beach -->
+<body>
+
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="TopContent" colspan="3" align="right" valign="top"><div style="height:6px"></div></td>
+		</tr>
+
+		<tr>
+			<td valign="top" align="center" class="Overview">
+			
+					<a href="http://www.zimbra.com" target="_new"> <span style="cursor:pointer; display: block;" class="ImgAppBanner"></span> </a>
+				
+			</td>
+			<td valign="top" class="TopContent" style="width:70%">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<tbody><tr>
+						<td width="66%">
+							
+
+<table width="100%" cellspacing="0" border="0" align="right">
+<tbody><tr style="height:35px">
+    <td height="25" nowrap="" class="SearchBar">
+        
+        <form method="get" onsubmit="return searchClick(this);" action="/zimbra/h/search">
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody><tr>
+            <td nowrap="nowrap">
+            <label for="searchField">Buscar : </label>
+			</td>
+           <td class="ImgField_L searchwidth"></td>
+            <td class="SearchFieldWidth"><input id="searchField" class="searchField" maxlength="2048" name="sq" value="" /></td>
+            <td class="ImgField_R searchwidth"></td>
+            <td nowrap="nowrap"><input type="checkbox" name="incShared" value="1" /></td><td nowrap="nowrap"> Incluir compartidos </td>    
+                
+            <td nowrap="nowrap" style="padding-left: 2px;"> en </td>
+            <td style="padding-left: 2px;">
+            
+            <select name="st">
+                
+                    <option selected="" value="conversation">Mensajes de correo
+                    </option><option value="contact">Contactos personales
+                    </option><option value="gal">Lista general de direcciones
+                    </option><option value="appointment">Agendas personales
+            </option></select>
+            </td>
+                
+            <td style="padding-left: 10px;">
+            <input class="SearchButton" type="submit" name="search" value="Buscar" />
+            
+            </td>
+            </tr></tbody></table>
+        </form>
+    </td>
+</tr>
+</tbody></table>
+
+<script type="text/javascript">
+searchClick = function(_form){
+      if(_form.st.options[_form.st.selectedIndex].value == "web"){
+          window.open("http://search.yahoo.com/search?p="+_form.sq.value);
+          return false;
+      }else{
+          return true;
+      }
+}
+</script>
+
+						</td>
+						
+					</tr>
+				</tbody></table>
+			</td>
+			<td align="center" style="padding-right:5px;">
+				<table cellpadding="2" cellspacing="0">
+					<tbody><tr>
+						<!--td align='center' class='ZhAppSwitchLink'>
+							<a href='/zimbra/?client=advanced'>Versión avanzada</a>
+						</td-->
+						<td>
+							 
+						</td>
+						
+							<td align="center" class="ZhAppSwitchLink">
+								<span id="switch_to_offline"><a href="http://www.zimbra.com/products/desktop.html" target="_new">Versión sin conexión</a></span>
+							</td>
+						
+					</tr>
+				</tbody></table>
+				<table cellpadding="2" cellspacing="0">
+					<tbody><tr>
+						
+						<td align="left" class="ZhAppLinks">
+							<a target="_new" href="/zimbra/help/standard/Zimbra_User_Help.htm?locid=es_ES"><img src="/img/zimbra/ImgHelp.png" title="Ayuda" alt="Ayuda" border="0" /> Ayuda</a>
+						</td>
+						<td>
+							 
+						</td>
+						<td align="right" class="ZhAppLinks">
+							<a href="/zimbra/?loginOp=logout"><img src="/img/zimbra/ImgLogoff.png" title="Cerrar sesión" alt="Cerrar sesión" border="0" /> Salir</a>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td class="Overview">
+				 
+			</td>
+			<td align="center" colspan="3">
+				<div id="app_status_container" style="z-index:100;position:relative;">
+<script>
+var dismissMsg = function(){
+	
+	try{document.getElementById("app_st_msg_div").style.display='none';return false;} catch(ex) {return true;}
+}
+</script>
+</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="Overview" style="padding-right:5px">
+				
+<table id="skin_container_tree_top" cellspacing="0" cellpadding="0" style="width:100%">
+   <tbody><tr>
+	<td>
+        
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr>
+                <td align="center" style="font-size:9px">
+                    <div style="width:160px;overflow:hidden;">
+                    <b>Yesica Fernanda  Guayabo Cano</b>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size:9px">
+                    34,68 MB de 100 MB    
+                </td>
+            </tr>
+        </tbody></table>
+        
+    </td>
+  </tr>
+</tbody></table>
+
+			</td>
+			
+			<td id="skin_container_app_chooser_lite" colspan="2" valign="bottom" style="padding:0px">
+				
+
+<table cellpadding="0" border="0" cellspacing="0">
+    <tbody><tr class="Tabs">
+        <td class="TabSpacer">
+        
+        </td><td class="Tab TabNormal">
+            <a id="TAB_MAIL" href="/zimbra/h/search">
+              <span id="tab_ikon_mail"><img src="/img/zimbra/ImgMailApp.png" title="Correo" alt="Correo" />
+              </span>
+                <span>Correo</span>
+            </a>
+        </td>
+        
+        <td class="TabSpacerR">
+        
+            </td><td class="TabSpacer">
+            </td><td class="Tab TabNormal">
+                <a id="TAB_ADDRESSBOOK" href="/zimbra/h/search?st=contact">
+                   <span id="tab_ikon_contacts"><img src="/img/zimbra/ImgContact.png" title="Libreta de direcciones" alt="Libreta de direcciones" /></span><span>Libreta de direcciones</span></a>
+            </td>
+            <td class="TabSpacerR">
+        
+            </td><td class="TabSpacer">
+            </td><td class="Tab TabNormal">
+                <a id="TAB_CALENDAR" href="/zimbra/h/calendar">
+                    <span id="tab_ikon_calendar"><img src="/img/zimbra/ImgCalendarApp.png" title="Agenda" alt="Agenda" /></span><span>Agenda</span></a>
+            </td>
+            <td class="TabSpacerR">
+        
+	        </td><td class="TabSpacer">
+	        </td><td class="Tab TabNormal">
+                <a id="TAB_OPTIONS" href="/zimbra/h/options?prev=compose">
+	                <span id="tab_ikon_options"><img src="/img/zimbra/ImgPreferences.png" title="Opciones" alt="Opciones" /></span><span>Preferencias</span></a>
+	        </td>
+	        <td class="TabSpacerR">
+        
+        </td><td class="TabSpacer">
+        </td><td class="Tab TabSelected">
+            
+            <a id="TAB_COMPOSE" href="/zimbra/h/search?action=compose"><span id="tab_ikon_compose"><img src="/img/zimbra/ImgNewMessage.png" title="Redactar nuevo mensaje" alt="Redactar nuevo mensaje" /></span><span>Redactar</span></a>
+        </td>
+        <td class="TabSpacerR">
+        
+		    </td><td class="TabSpacer">
+		    </td><td class="TabFiller"> </td>
+	    
+    </tr>
+</tbody></table>
+
+			</td>
+		</tr>
+		<tr>
+			
+				<td valign="top" class="Overview">
+					
+
+
+<div class="Tree">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody><tr class="TreeHeaderRow">
+            
+               <th style="width:20px"><a href="/zimbra/h/search?collapse=folders"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%">Carpetas</th>
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                
+                <a id="MFOLDERS" href="/zimbra/h/mfolders">editar </a>
+            </th>
+        </tr>
+ 
+        
+<tr>
+    <td nowrap="" colspan="3" id="folder_2" class="Folder Unread" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search?sfi=2" id="FLDR2">
+            <img src="/img/zimbra/ImgInbox.png" title="Bandeja de entrada" alt="Bandeja de entrada" />
+            <span title="Bandeja de entrada">Bandeja de ...
+                (12) </span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_5" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search?sfi=5" id="FLDR5">
+            <img src="/img/zimbra/ImgSentFolder.png" title="Enviados" alt="Enviados" />
+            <span title="Enviados">Enviados</span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_6" class="Folder Unread" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search?sfi=6" id="FLDR6">
+            <img src="/img/zimbra/ImgDraftFolder.png" title="Borradores" alt="Borradores" />
+            <span title="Borradores">Borradores
+                (11) </span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_4" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search?sfi=4" id="FLDR4">
+            <img src="/img/zimbra/ImgSpamFolder.png" title="Spam" alt="Spam" />
+            <span title="Spam">Spam</span>
+        </a>
+
+    </td></tr>
+
+
+<tr>
+    <td nowrap="" colspan="3" id="folder_3" class="Folder" style="padding-left: 20px">
+        
+        <a href="/zimbra/h/search?sfi=3" id="FLDR3">
+            <img src="/img/zimbra/ImgTrash.png" title="Papelera" alt="Papelera" />
+            <span title="Papelera">Papelera</span>
+        </a>
+
+    </td></tr>
+
+
+    </tbody></table>
+    
+</div>
+
+
+
+<div class="Tree">
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            
+            <th style="width:20px"><a href="/zimbra/h/search?collapse=searches"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%">Búsquedas</th>
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                
+                <a href="/zimbra/h/mfolders">editar</a>
+            </th>
+        </tr>
+        
+    </tbody></table>
+</div>
+
+
+<div class="TagTree Tree">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          
+        <tbody><tr>
+            
+            <th style="width:20px"><a href="/zimbra/h/search?collapse=tags&amp;st=conversation"><img src="/img/zimbra/ImgNodeExpanded.png" title="Vista ampliada" alt="Vista ampliada" /></a></th>
+            <th class="Header" nowrap="nowrap" width="99%"> Etiquetas</th>
+            
+            <th nowrap="nowrap" align="right" class="ZhTreeEdit">
+                <a id="MTAGS" href="/zimbra/h/mtags">editar </a>
+            </th>
+        </tr>
+        
+    </tbody></table>
+</div>
+
+				</td>
+			
+			<td valign="top" colspan="3" style="padding-left:0px">
+			
+
+    <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tbody><tr>
+                <td class="TbTop">
+                    <table width="100%" cellspacing="0">
+            <tbody><tr valign="middle">
+                <td class="TbBt">
+                    <table cellspacing="0" cellpadding="0" class="Tb">
+                        <tbody><tr>
+                            
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionAttachDone" type="image" src="/zimbra/img/zimbra/ImgCheck.png" alt="Hecho" title="Hecho" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionAttachDone" type="submit" value="Hecho" title="Hecho" /></td>
+
+                            <td><div class="vertSep"></div></td>
+                            
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionAttachCancel" type="image" src="/zimbra/img/zimbra/ImgCancel.png" alt="Cancelar" title="Cancelar" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionAttachCancel" type="submit" value="Cancelar" title="Cancelar" /></td>
+
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td class="ZhAppContent">
+                        <table cellpadding="0" cellspacing="10" height="80%" width="100%" class="Compose">
+                            <tbody><tr>
+                                <td align="right"><img src="/img/zimbra/ImgAttachment.png" title="Fichero adjunto" alt="Fichero adjunto" /></td>
+                                <td colspan="2"><b>Selecciona los archivos a adjuntar y haz clic en "Terminado" al finalizar.</b></td>
+                            </tr>
+                            
+                                <tr>
+                                    <td align="right">1.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">2.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">3.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">4.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">5.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">6.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">7.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">8.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">9.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td align="right">10.</td>
+                                    <td colspan="2"><input type="file" size="40" name="fileUpload" /></td>
+                                </tr>
+                            
+                            <tr>
+                                <td> </td>
+                                <td colspan="2"><b>
+                                    <b>Nota: </b>El tamaño máximo de cada archivo adjunto es de 29 MB
+                                    </b>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td class="TbBottom">
+                    <table width="100%" cellspacing="0">
+            <tbody><tr valign="middle">
+                <td class="TbBt">
+                    <table cellspacing="0" cellpadding="0" class="Tb">
+                        <tbody><tr>
+                            
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionAttachDone" type="image" src="/zimbra/img/zimbra/ImgCheck.png" alt="Hecho" title="Hecho" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionAttachDone" type="submit" value="Hecho" title="Hecho" /></td>
+
+                            <td><div class="vertSep"></div></td>
+                            
+    <td height="100%" nowrap="nowrap" valign="middle"><input name="actionAttachCancel" type="image" src="/zimbra/img/zimbra/ImgCancel.png" alt="Cancelar" title="Cancelar" /></td>
+
+    <td height="100%" valign="middle" class="IEbutton"><input align="left" name="actionAttachCancel" type="submit" value="Cancelar" title="Cancelar" /></td>
+
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+        <input type="hidden" name="to" value="scoronado@choucairtesting.com" />
+        <input type="hidden" name="sendUID" value="ffcaf0cf-8df6-4f62-b178-6c1fb2882ba7" />        
+        <input type="hidden" name="cc" value="yguayaboc@choucairtesting.com" />
+        <input type="hidden" name="bcc" value="" />
+        <input type="hidden" name="subject" value="Prueba de Robot YC" />
+        
+        <input type="hidden" name="body" value="https://www.guru99.com/xpath-selenium.html" />
+        <input type="hidden" name="replyto" value="" />
+        <input type="hidden" name="from" value="&quot;Yesica Fernanda  Guayabo Cano&quot; &lt;yguayaboc@choucairtesting.com&gt;" />
+        <input type="hidden" name="inreplyto" value="" />
+        <input type="hidden" name="messageid" value="" />
+        <input type="hidden" name="replytype" value="" />
+        <input type="hidden" name="draftid" value="420" />
+        <input type="hidden" name="inviteReplyVerb" value="" />
+        <input type="hidden" name="inviteReplyInst" value="0" />
+        <input type="hidden" name="inviteReplyAllDay" value="false" />        
+        <input type="hidden" name="compNum" value="" />
+        <input type="hidden" name="instCompNum" value="" />        
+    </form>
+
+		</td>
+		
+		<td style="width:6px;">
+			  
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4"> </td>
+	</tr>
+	</tbody></table>
+
+
+
+
+</body></html>
