@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Redactar un correo" skipped="0" tests="1" time="34.24" timestamp="2018-09-17T20:03:59.380-05:00[America/Bogota]"><testcase name="Con datos quemados"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Redactar un correo" skipped="0" tests="1" time="20.79" timestamp="2019-11-28T10:33:50.316-05:00[America/Bogota]"><testcase name="Con datos quemados"><error message="The following error occurred: Expected condition failed: waiting for despachoClienteRecogePageObject.txtDespacho to be displayed (tried for 5 second(s) with 100 MILLISECONDS interval)&#10;Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'&#10;System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'&#10;System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">The following error occurred: Expected condition failed: waiting for despachoClienteRecogePageObject.txtDespacho to be displayed (tried for 5 second(s) with 100 MILLISECONDS interval)
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown</error><system-err>The following error occurred: Expected condition failed: waiting for despachoClienteRecogePageObject.txtDespacho to be displayed (tried for 5 second(s) with 100 MILLISECONDS interval)
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'CHBOGML105745', ip: '10.185.6.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: unknown&#13;
+modulo.despacho.recoge.despachoClienteRecogePageObject.obtenerDespacho(despachoClienteRecogePageObject.java:156)&#13;
+modulo.despacho.recoge.despachoClienteRecogeSteps.obtenerDespacho(despachoClienteRecogeSteps.java:89)&#13;
+modulo.despacho.recoge.despachoClienteRecogeDefinition.valido_que_se_encuentre_la_unidad_de_negocio(despachoClienteRecogeDefinition.java:61)&#13;
+org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+</system-err></testcase></testsuite>

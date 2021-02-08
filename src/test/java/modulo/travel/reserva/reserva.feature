@@ -1,44 +1,31 @@
 
-@redactarCorreo
-Feature: Redactar un correo
-Yo quiero crear un correo
-con mi usuario de zimbra
-para cumplir mi reto
+@casoFallido
+Feature: Reserva 
 
 
-  @redactarCorreo @datoQuemado
-  Scenario: Con datos quemados
+        
+ @casoFallido
+  Scenario Outline: Realizar una reserva 
   logueando por aplicativo zimbra
-    Given Ingresar al aplicativo zimbra con usuario "yguayaboc" y contrasena"Bogo789*"
-    And ingresar al modulo redactar correo 
-    When diligenciar el formulario 
-    |para							|scoronado@choucairtesting.com			     				             				 |		
-    |copia						|yguayaboc@choucairtesting.com									       							 |
-    |asunto						|Prueba de Robot YC														 	        						 |
-    |Mensaje					|https://www.guru99.com/xpath-selenium.html		       							   |
-    |Archivo adjunto	|C:\CapacitacionWorkspaceYG\com.choucair.zimbra.yg\Lighthouse.jpg    |
-    |Prioridad				|Baja	  																       	       							 |
-       And envio el correo
-      Then valido que el correo se haya enviado correctamente
-  
-
- @redactarCorreo @datoDinamico
-  Scenario Outline: Redactar un correo con datos dinamicos
-  logueando por aplicativo zimbra
-    Given Ingresar al aplicativo zimbra con usuario "<txtusuario>" y "<txtcontraseña>"
-    And ingresar al modulo redactar correo
-    When diligenciar el formulario
-    
-    |para   	|"<txtpara>" 			|
-    |copia		|"<txtcopia>"			|
-    |Asunto		|"<txtadjunto>"		|
-    |Mensaje	|"<txtasunto>"		|
-    |Adjunto	|"<txtadjunto>"		|
-    |Prioridad|"<cboPrioridad>"	|
-    And envio el correo
-    Then valido que el correo se haya enviado
+    Given En la pantalla de inicio, seleccionando la opción Hotel
+    And iniciar una reserva de hotel seleccionando cualquiera de los destinos disponibles en la <listaDespegable>
+    And ingresando las fechas de inicio <Check-in> y final <Check-out> 
+    And con dos adultos 
+    And cero niños
+    And haciendo clic en la opción Search
+    When Seleccionar alguno de los cuartos disponibles 
+    And hacer clic en el botón Book now 
+    And diligenciar todos los campos del formulario Personal details Nombre<Nombre> Apellido<Apellido> Email<Email> ConfirmarEmail<ConfirmarEmail> Contacto<Contacto> Direccion<Direccion> Pais <Pais>
+    And Verificar que el cupón <Cupon> de descuento no es válido cerrando la alerta de navegador que se presenta 
+    And continuando con el proceso haciendo clic en el botón confirm this booking
+    And Hacer clic en el botón Pay Now 
+    And Seleccionar como método de pago Tarjeta de crédito <TarjetaCredito>
+    And diligenciar los datos correspondientes Nombre <Nombre> Apellido <Apellido> 
+    And El campo "Card number" deberá ser diligenciado con una cadena númerica de longitud 16 generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta <NumeroTarjeta> Mes <Mes> Año <Ano> Contraseña <Contrasena> y culminar pago.
+    Then Al terminar la reserva, se debe mostrar un mensaje <Mensaje> del cual se debe comprobar con una aserción y se debe tomar captura de pantalla.
+   
 
     Examples: 
-      | txtusuario  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | listaDespegable                          | Check-in      | Check-out    | Nombre    | Apellido | Email             | ConfirmarEmail       | Contacto      | Direccion             | Pais         | Cupon     | TarjetaCredito | Mensaje																																				|
+      | "Tria Hotel Istanbul Especial, Istanbul" | "14/02/2021"  | "19/02/2021" | "Shakira" | "pique"  | "pruebak@kkk.com" | "pruebak@kkk.com"	  | "3221111256"  | "Calle falsa 123"     | "Colombia"   | "121213"  | "Credit Card"  | "The merchant login ID or password is invalid or the account is inactive."  	|
+      

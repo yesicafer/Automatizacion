@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.choucair.zimbra.yg</groupId>
-  <artifactId>com.choucair.zimbra.yg</artifactId>
+  <groupId>com.choucair.reto3</groupId>
+  <artifactId>com.choucair.reto3</artifactId>
   <version>1.0.0</version>
-  <name>com.choucair.zimbra.yg</name>
+  <name>com.choucair.clienteRecoge</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <serenity.version>1.6.3</serenity.version>
@@ -175,7 +175,7 @@
                           <version>2.20.1</version>
                           <configuration>
                             <includes>
-                              <include>com.choucair.zimbra.yg/**/**/Runner*.java</include>
+                              <include>com.choucair.clienteRecoge/**/**/Runner*.java</include>
                             </includes>
                           </configuration>
                         </plugin>
