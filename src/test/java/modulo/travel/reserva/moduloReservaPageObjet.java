@@ -4,19 +4,25 @@ import java.util.Set;
 
 import org.apache.tools.ant.taskdefs.Sleep;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import com.openhtmltopdf.css.style.derived.StringValue;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.core.photography.ScreenshotPhoto;
 import net.thucydides.core.annotations.DefaultUrl;
 import java.util.List;
+import java.util.Random;
 
 
 @DefaultUrl("https://www.phptravels.net/home")
@@ -129,7 +135,21 @@ public class moduloReservaPageObjet extends PageObject {
 		
 		@FindBy(xpath="//*[@name='cardnum']")
 		WebElementFacade txtNumeroTarjeta;
-				
+		
+		@FindBy(xpath="//*[@name='expMonth']")
+		WebElementFacade txtFechaCard;
+		
+		@FindBy(xpath="//*[@name='expYear']")
+		WebElementFacade txtFechaExp;
+		
+		@FindBy(xpath="//*[@name='cvv']")
+		WebElementFacade txtCvv;
+		
+		@FindBy(xpath="//*[@class='btn btn-success btn-lg paynowbtn go-right']")
+		WebElementFacade btnPagarAhora;
+		
+		@FindBy(xpath="//*[@style='background-color: #ff3939; color: white; font-family: Tahoma; margin-bottom: 15px; padding: 16px; font-weight: lighter; text-transform: uppercase; letter-spacing: 6px; width: 571px; margin: auto;']")
+		WebElementFacade txtFinal;
 		
 		public void seleccionarOpcionHotel () {
 			btnHotels.click();
@@ -319,20 +339,38 @@ public class moduloReservaPageObjet extends PageObject {
 		    
 		}
 		
-		public void ingresarNumeroTarjetaCredito() {
-		/*	int  longitud;
-			int[] numeros = new int[14];
-			int [] arreglo = {43,44,45,46,53,54,55,66};
-		
-			for(int i=0; i<numeros.length; i++) {
-				
-			System.out.println("Ejemplo"+numeros[i]);
+		public void ingresarNumeroTarjetaCredito(String contrasena) {
 			
-			//longitud=numeros[i];
-			int Result=arreglo+longitud;
+			Random rnd = new Random();
+			
+			int[] longitud = new int[14];
+			int aleatorio[]= {1,2,3,4,5,6,7,8,9};
+			int  inicia[] = {43,44,45,46,53,54,55,66};
+			
+			String lil=String.valueOf(inicia[rnd.nextInt(inicia.length)]);			
+			txtNumeroTarjeta.sendKeys(lil);
+			
+			for(int i=0; i<longitud.length; i++) {
 				
-				
-			}*/
+			String aleatorio2=String.valueOf(aleatorio[rnd.nextInt(aleatorio.length)]);
+			txtNumeroTarjeta.sendKeys(aleatorio2);
+			
+			
+			}
+			txtFechaCard.selectByVisibleText("Apr (04)");	
+			txtFechaExp.selectByVisibleText("2022");
+			txtCvv.sendKeys(contrasena);
+			btnPagarAhora.click();
+			
+		
+		}
+		
+		public void resultadoEsperado(String comparacion) {
+			System.out.println(txtFinal.getText());
+			System.out.println(comparacion);
+			Assert.assertEquals(txtFinal.getText(),comparacion);
+			
+			
 		}
 		
 }

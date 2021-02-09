@@ -1,6 +1,7 @@
 package modulo.travel.reserva;
 
 
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Step;
 
 
@@ -90,9 +91,15 @@ public class moduloReservaSteps {
 	}
 	
 	@Step
-	public void el_campo_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_NumeroTarjeta_Mes_Mes_Año_Ano_Contraseña_Contrasena_y_culminar_pago(String arg1, int arg2) {
-		rPageObect.ingresarNumeroTarjetaCredito();
+	public void el_campo_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_NumeroTarjeta_Mes_Mes_Año_Ano_Contraseña_Contrasena_y_culminar_pago(String arg1) {
+		rPageObect.ingresarNumeroTarjetaCredito(arg1);
 		
+	}
+	
+	@Step
+	@Screenshots(forEachAction=true)
+	public void al_terminar_la_reserva_se_debe_mostrar_un_mensaje_del_cual_se_debe_comprobar_con_una_aserción_y_se_debe_tomar_captura_de_pantalla(String comparacion)  {
+		rPageObect.resultadoEsperado(comparacion);
 	}
 
 }

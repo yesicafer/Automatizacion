@@ -21,11 +21,11 @@ Feature: Reserva
     And Hacer clic en el botón Pay Now 
     And Seleccionar como método de pago Tarjeta de crédito <TarjetaCredito>
     And diligenciar los datos correspondientes Nombre <Nombre> Apellido <Apellido> 
-    And El campo "Card number" deberá ser diligenciado con una cadena númerica de longitud 16 generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta <NumeroTarjeta> Mes <Mes> Año <Ano> Contraseña <Contrasena> y culminar pago.
+    And El campo Card number deberá ser diligenciado con una cadena númerica de longitud dieciseis generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta  Mes Año Contraseña<Contrasena> y culminar pago.
     Then Al terminar la reserva, se debe mostrar un mensaje <Mensaje> del cual se debe comprobar con una aserción y se debe tomar captura de pantalla.
    
 
     Examples: 
-      | listaDespegable                          | Check-in      | Check-out    | Nombre    | Apellido | Email             | ConfirmarEmail       | Contacto      | Direccion             | Pais         | Cupon     | TarjetaCredito | Mensaje																																				|
-      | "Tria Hotel Istanbul Especial, Istanbul" | "14/02/2021"  | "19/02/2021" | "Shakira" | "pique"  | "pruebak@kkk.com" | "pruebak@kkk.com"	  | "3221111256"  | "Calle falsa 123"     | "Colombia"   | "121213"  | "Credit Card"  | "The merchant login ID or password is invalid or the account is inactive."  	|
+      | listaDespegable                          | Check-in      | Check-out    | Nombre    | Apellido | Email             | ConfirmarEmail       | Contacto      | Direccion             | Pais         | Cupon     | TarjetaCredito |Contrasena    | Mensaje																																			|
+      | "Tria Hotel Istanbul Especial, Istanbul" | "14/02/2021"  | "19/02/2021" | "Shakira" | "Pique"  | "pruebak@kkk.com" | "pruebak@kkk.com"	  | "3221111256"  | "Calle falsa 123"     | "Colombia"   | "121213"  | "Credit Card"  | "123"        | "The merchant login ID or password is invalid or the account is inactive."  	|
       

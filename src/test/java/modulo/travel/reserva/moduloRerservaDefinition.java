@@ -99,17 +99,16 @@ public void ingresando_las_fechas_de_inicio_y_final(String fechaIncio, String fe
 	    
 	}
 
-
-	@When("^El campo \"([^\"]*)\" deberá ser diligenciado con una cadena númerica de longitud (\\d+) generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta <NumeroTarjeta> Mes <Mes> Año <Ano> Contraseña <Contrasena> y culminar pago\\.$")
-	public void el_campo_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_NumeroTarjeta_Mes_Mes_Año_Ano_Contraseña_Contrasena_y_culminar_pago(String arg1, int arg2)  {
-	reservaSteps.el_campo_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_NumeroTarjeta_Mes_Mes_Año_Ano_Contraseña_Contrasena_y_culminar_pago(arg1, arg2);    
+			
+	@When("^El campo Card number deberá ser diligenciado con una cadena númerica de longitud dieciseis generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta  Mes Año Contraseña\"([^\"]*)\" y culminar pago\\.$")
+	public void el_campo_Card_number_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_dieciseis_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_Mes_Año_Contraseña_y_culminar_pago(String arg1)  {
+	reservaSteps.el_campo_deberá_ser_diligenciado_con_una_cadena_númerica_de_longitud_generada_aleatoriamente_y_deberá_iniciar_únicamente_con_alguno_de_los_siguientes_números_NumeroTarjeta_NumeroTarjeta_Mes_Mes_Año_Ano_Contraseña_Contrasena_y_culminar_pago(arg1);    
 	}
 
 
 	@Then("^Al terminar la reserva, se debe mostrar un mensaje \"([^\"]*)\" del cual se debe comprobar con una aserción y se debe tomar captura de pantalla\\.$")
-	public void al_terminar_la_reserva_se_debe_mostrar_un_mensaje_del_cual_se_debe_comprobar_con_una_aserción_y_se_debe_tomar_captura_de_pantalla(String arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	  
+	public void al_terminar_la_reserva_se_debe_mostrar_un_mensaje_del_cual_se_debe_comprobar_con_una_aserción_y_se_debe_tomar_captura_de_pantalla(String comparacion) {
+	reservaSteps.al_terminar_la_reserva_se_debe_mostrar_un_mensaje_del_cual_se_debe_comprobar_con_una_aserción_y_se_debe_tomar_captura_de_pantalla(comparacion); 
 	}
 
 	@Given("^ingresando las fechas de (\\d+) y Fail$")
