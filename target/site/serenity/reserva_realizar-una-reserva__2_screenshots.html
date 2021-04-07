@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
+<![endif]--><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">Choucair - Automatización Zimbra</span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="feature_reserva_sl_reserva.html">Reserva</a></span>
+                > <span class="truncate-60"><a
+                    href="reserva_realizar-una-reserva__2.html">Realizar una reserva </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 06-04-2021 20:43</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Reserva</span>
+                                    <span class="badge tag-badge">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge">
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" href="tag_casofallido.html">Casofallido
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></span>
+                            <span class="test-case-title">
+                                <span class="failing-color">Realizar Una Reserva
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario"><br>Given En la pantalla de inicio, seleccionando la opción Hotel<br>And iniciar una reserva de hotel seleccionando cualquiera de los destinos disponibles en la &lt;listaDespegable&gt;<br>And ingresando las fechas de inicio &lt;Check-in&gt; y final &lt;Check-out&gt;<br>And con dos adultos&lt;Adultos&gt;<br>And cero niños&lt;ninos&gt;<br>And haciendo clic en la opción Search<br>When Seleccionar alguno de los cuartos disponibles<br>And hacer clic en el botón Book now<br>And diligenciar todos los campos del formulario Personal details Nombre&lt;Nombre&gt; Apellido&lt;Apellido&gt; Email&lt;Email&gt; ConfirmarEmail&lt;ConfirmarEmail&gt; Contacto&lt;Contacto&gt; Direccion&lt;Direccion&gt; Pais &lt;Pais&gt;<br>And Verificar que el cupón &lt;Cupon&gt; de descuento no es válido cerrando la alerta de navegador que se presenta<br>And continuando con el proceso haciendo clic en el botón confirm this booking<br>And Hacer clic en el botón Pay Now<br>And Seleccionar como método de pago Tarjeta de crédito &lt;TarjetaCredito&gt;<br>And diligenciar los datos correspondientes Nombre &lt;Nombre&gt; Apellido &lt;Apellido&gt;<br>And El campo Card number deberá ser diligenciado con una cadena númerica de longitud dieciseis generada aleatoriamente y deberá iniciar únicamente con alguno de los siguientes números NumeroTarjeta  Mes Año Contraseña&lt;Contrasena&gt; y culminar pago.<br>Then Al terminar la reserva, se debe mostrar un mensaje &lt;Mensaje&gt; del cual se debe comprobar con una aserción y se debe tomar captura de pantalla.<br><br></div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+                <div class="panel-heading"><span class='error-caption ellipsis'>FAILURE: Assertion error: expected:(T[HE MERCH...</span></div>
+                <div class="panel-body">
+                    <a href="pagesource2907167389157696018.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="scaled_403378f3de964c65b17fc493235d73405c508735c98aef544bf21002e6dcc470.png" title="Given En la pantalla de inicio, seleccionando la opci&oacute;n Hotel" width="960"/>
+                <img src="scaled_a2c165b9e589b921d30f142514f4618e4592b808d7d858c27da5ef068d28b345.png" title="En la pantalla de inicio seleccionando la opci&oacute;n name" width="960"/>
+                <img src="scaled_a467fe05e9af5acc074ebc880d12b077803be0978bee2a6c3bae5e624aa86387.png" title="And iniciar una reserva de hotel seleccionando cualquiera de los destinos disponibles en la &quot;Tria Hotel Istanbul Especial, Istanbul&quot;" width="960"/>
+                <img src="a467fe05e9af5acc074ebc880d12b077803be0978bee2a6c3bae5e624aa86387.png" title="Iniciar una reserva de hotel seleccionando cualquiera de los destinos disponibles: Tria Hotel Istanbul Especial, Istanbul" width="960"/>
+                <img src="scaled_6d2c07a9f3f591c4c7118ba1f31a79af2e86dc2b22708cd69896f75482ab01c0.png" title="And ingresando las fechas de inicio &quot;14/02/2021&quot; y final &quot;19/02/2021&quot;" width="960"/>
+                <img src="scaled_c284b51bf89698c68c0acf57a0434ed08704b0c5ff8bb6537fccf5a77514650c.png" title="Ingresando las fechas de inicio y final: 14/02/2021, 19/02/2021" width="960"/>
+                <img src="scaled_54eb18c09b45a7a51acd02e6bf3bfc43f72d24ea40181696ad55381ae7e61f85.png" title="And con dos adultos2" width="960"/>
+                <img src="scaled_325e94ad1bb9ca3595f0fc763cc455f4eababecfa249532e5c5174afce952e32.png" title="Con dos adultos: 2" width="960"/>
+                <img src="scaled_0b971206ae241c472d3cfdb4544bd2a37b773da768bac24eca634d7feabf3586.png" title="And cero ni&ntilde;os0" width="960"/>
+                <img src="0b971206ae241c472d3cfdb4544bd2a37b773da768bac24eca634d7feabf3586.png" title="Cero ni&ntilde;os: 0" width="960"/>
+                <img src="scaled_a8f91750abae360e4b9b35414f98f03fa62a35aa31491eccd817e101efdccdf8.png" title="And haciendo clic en la opci&oacute;n Search" width="960"/>
+                <img src="a8f91750abae360e4b9b35414f98f03fa62a35aa31491eccd817e101efdccdf8.png" title="Haciendo clic en la opci&oacute;n  search" width="960"/>
+                <img src="scaled_ccfb74e803316cf81e5bcdfe41b56b5f06c8d0c60042dbd40ec0ba21eebccf04.png" title="When Seleccionar alguno de los cuartos disponibles" width="960"/>
+                <img src="ccfb74e803316cf81e5bcdfe41b56b5f06c8d0c60042dbd40ec0ba21eebccf04.png" title="Seleccionar alguno de los cuartos disponibles" width="960"/>
+                <img src="scaled_6a4ecc9592d52673e18e8683a48198fead043a8c93474f9be2ada657a5a71736.png" title="And hacer clic en el bot&oacute;n Book now" width="960"/>
+                <img src="scaled_4d49ea5ff8206bdf017a88a594a9686a9477073e761489ecc350faf8b14d1fcb.png" title="Hacer clic en el bot&oacute;n  book now" width="960"/>
+                <img src="scaled_2ad45e548553c08fc1dd197a61d5bd2dfd216947b61078aca694591ebe85fb3e.png" title="And diligenciar todos los campos del formulario Personal details Nombre&quot;Shakira&quot; Apellido&quot;Pique&quot; Email&quot;pruebak@kkk.com&quot; ConfirmarEmail&quot;pruebak@kkk.com&quot; Contacto&quot;3221111256&quot; Direccion&quot;Calle falsa 123&quot; Pais &quot;Colombia&quot;" width="960"/>
+                <img src="2ad45e548553c08fc1dd197a61d5bd2dfd216947b61078aca694591ebe85fb3e.png" title="Diligenciar todos los campos del formulario  personal details  nombre  apellido  email  confirmar email: Shakira, Pique, pruebak@kkk.com, pruebak@kkk.com, 3221111256, Calle falsa 123, Colombia" width="960"/>
+                <img src="scaled_ad01bae9eb07d4f74544cb7e64e98412c53874b7b3242d0d6c502ee0c3265669.png" title="And Verificar que el cup&oacute;n &quot;121213&quot; de descuento no es v&aacute;lido cerrando la alerta de navegador que se presenta" width="960"/>
+                <img src="ad01bae9eb07d4f74544cb7e64e98412c53874b7b3242d0d6c502ee0c3265669.png" title="Verificar que el cup&oacute;n de descuento no es v&aacute;lido cerrando la alerta de navegador que se presenta: 121213" width="960"/>
+                <img src="scaled_43bbe45ab53222a53a496ebbcb20919ed09c14e9d9290bdf4ef0dd3dcd8fca99.png" title="And continuando con el proceso haciendo clic en el bot&oacute;n confirm this booking" width="960"/>
+                <img src="43bbe45ab53222a53a496ebbcb20919ed09c14e9d9290bdf4ef0dd3dcd8fca99.png" title="Continuando con el proceso haciendo clic en el bot&oacute;n confirm this booking" width="960"/>
+                <img src="scaled_f96ba6d911b30c22ca06e6a6a11084f4e1851637625c3ce5fbfd06f40a67a288.png" title="And Hacer clic en el bot&oacute;n Pay Now" width="960"/>
+                <img src="scaled_09eaf39e1df4425de08235cd9a989943f2ea7b2d1ceacf3a6f26e17616b3f840.png" title="Hacer clic en el bot&oacute;n  pay  now" width="960"/>
+                <img src="scaled_e0d5d2e4734ceb8cb40890282dc7a98531c4c61eed6bcb22d4d98f40fdf3868f.png" title="And Seleccionar como m&eacute;todo de pago Tarjeta de cr&eacute;dito &quot;Credit Card&quot;" width="960"/>
+                <img src="scaled_605f09cc0b2d520bd481e6f6db9098b201286eae05677ffdca08ffbdafbaa40f.png" title="Seleccionar como m&eacute;todo de pago  tarjeta de cr&eacute;dito: Credit Card" width="960"/>
+                <img src="scaled_6307679bf994ef9b18779519188886073fbbe1c81515e7ebad7b8313159103ed.png" title="And diligenciar los datos correspondientes Nombre &quot;Shakira&quot; Apellido &quot;Pique&quot;" width="960"/>
+                <img src="scaled_6eb1d2ad01d353c0920f72272b6876336a0c8aa70ebfafa8147a9349236f602e.png" title="Diligenciar los datos correspondientes  nombre  apellido: Shakira, Pique" width="960"/>
+                <img src="scaled_b2e777dcbc28a56fe59c01782498c37c4ee56c5ff53ff9877c9a8da92b18831e.png" title="And El campo Card number deber&aacute; ser diligenciado con una cadena n&uacute;merica de longitud dieciseis generada aleatoriamente y deber&aacute; iniciar &uacute;nicamente con alguno de los siguientes n&uacute;meros NumeroTarjeta  Mes A&ntilde;o Contrase&ntilde;a&quot;123&quot; y culminar pago." width="960"/>
+                <img src="scaled_229634c9b3b6319fc5c2a877b07bc6f16d688f84dccccbe335c3588e42ddb3fd.png" title="El campo deber&aacute; ser diligenciado con una cadena n&uacute;merica de longitud generada aleatoriamente y deber&aacute; iniciar &uacute;nicamente con alguno de los siguientes n&uacute;meros  numero tarjeta  numero tarjeta  mes  mes a&ntilde;o  ano  contrase&ntilde;a  contrasena y culminar pago: 123" width="960"/>
+                <img src="scaled_2b051bba6f3d41e147249ac52990ecdf4c1cfacfe4fc3dee47c6e3b07a1582ec.png" title="Al terminar la reserva se debe mostrar un mensaje del cual se debe comprobar con una aserci&oacute;n y se debe tomar captura de pantalla: The merchant login ID or password is invalid or the account is inactive.: <span class='failing-color'>FAILURE</span>" width="960"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 1.5.1</span>
+</div>
+</body>
+</html>
